@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AI Crawler Test</title>
+    <meta charset="utf-8" />
+  </head>
+  <body>
+    <h1>AI Crawler Test Page</h1>
+
+    <!-- Unique token so we can identify this page -->
+    <div data-token="sandbox-2025-11-04"></div>
+
+    <!-- Tracking pixel pointing to your Cloudflare Worker -->
+    <img
+      src="https://YOUR-WORKER.workers.dev/pixel.gif?token=sandbox-2025-11-04"
+      width="1"
+      height="1"
+      alt=""
+    />
+
+    <!-- Tracking CSS fetch (some crawlers load CSS even if they skip images) -->
+    <link
+      rel="stylesheet"
+      href="https://YOUR-WORKER.workers.dev/log.css?token=sandbox-2025-11-04"
+    />
+  </body>
+</html>
