@@ -1,27 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AI Crawler Test</title>
     <meta charset="utf-8" />
+    <title>AI Crawler Test</title>
+    <meta name="robots" content="all" />
   </head>
   <body>
     <h1>AI Crawler Test Page</h1>
 
-    <!-- Unique token so we can identify this page -->
-    <div data-token="sandbox-2025-11-04"></div>
+    <!-- Page identifier -->
+    <div data-token="sandbox-2025-11-05"></div>
 
-    <!-- Tracking pixel pointing to your Cloudflare Worker -->
+    <!-- 1×1 pixel beacon (this is the correct syntax) -->
     <img
-      src="<img src="https://ai-logger.stevechoi0222.workers.dev/pixel.gif?token=allow-2025-11-05" width="1" height="1" alt="">"
+      src="https://ai-logger.stevechoi0222.workers.dev/pixel.gif?token=sandbox-2025-11-05"
       width="1"
       height="1"
       alt=""
     />
 
-    <!-- Tracking CSS fetch (some crawlers load CSS even if they skip images) -->
+    <!-- CSS beacon (some bots fetch CSS even if they skip images) -->
     <link
       rel="stylesheet"
-      href="https://ai-logger.stevechoi0222.workers.dev/log.css?token=sandbox-2025-11-04"
+      href="https://ai-logger.stevechoi0222.workers.dev/log.css?token=sandbox-2025-11-05"
     />
   </body>
 </html>
