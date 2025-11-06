@@ -10,7 +10,7 @@ export default function CrawlerTable() {
   const [data, setData] = useState<CrawlerEvent[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [onlyBots, setOnlyBots] = useState(true);
+  const [onlyBots, setOnlyBots] = useState(false); // Changed to false to show all visits by default
   const [filterQuery, setFilterQuery] = useState("");
 
   // Fetch data on mount
@@ -30,6 +30,8 @@ export default function CrawlerTable() {
         }
 
         const logs = await res.json();
+        console.log('Fetched logs:', logs); // Debug: see what data we got
+        console.log('Number of logs:', Array.isArray(logs) ? logs.length : 0); // Debug: count
         setData(Array.isArray(logs) ? logs : []);
       } catch (err) {
         console.error("Error fetching crawler data:", err);
@@ -44,7 +46,7 @@ export default function CrawlerTable() {
 
   // Filter and sort data
   const rows = useMemo(() => {
-    return data
+    const filtered = data
       .filter((e) => (onlyBots ? isBot(e.ua) : true))
       .filter((e) =>
         filterQuery
@@ -52,6 +54,9 @@ export default function CrawlerTable() {
           : true
       )
       .sort((a, b) => new Date(b.ts).getTime() - new Date(a.ts).getTime());
+
+    console.log('Total data:', data.length, 'After filters:', filtered.length, 'Bots only:', onlyBots); // Debug
+    return filtered;
   }, [data, onlyBots, filterQuery]);
 
   if (loading) {
