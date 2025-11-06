@@ -1,4 +1,4 @@
-User-agent: *
+User-Agent: *
 Allow: /
 
 Sitemap: https://stevechoi0222.github.io/ai-cralwer-tracker/sitemap.xml
