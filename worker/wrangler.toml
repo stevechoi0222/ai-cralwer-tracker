@@ -1,0 +1,13 @@
+name = "ai-logger"
+main = "index.js"
+compatibility_date = "2024-11-01"
+
+# KV Namespace for storing logs
+[[kv_namespaces]]
+binding = "LOGS"
+id = "YOUR_KV_NAMESPACE_ID"  # Replace with your KV namespace ID
+
+# Workers Routes (if using custom domain)
+# routes = [
+#   { pattern = "ai-logger.stevechoi0222.workers.dev/*", zone_name = "stevechoi0222.workers.dev" }
+# ]
